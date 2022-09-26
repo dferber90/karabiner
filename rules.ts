@@ -20,111 +20,106 @@ const rules: KarabinerRules[] = [
         ],
         to_if_alone: [
           {
-            key_code: "escape",
+            key_code: "keypad_0",
           },
         ],
         type: "basic",
       },
-      {
-        type: "basic",
-        description: "Disable CMD + Tab to force Hyper Key usage",
-        from: {
-          key_code: "tab",
-          modifiers: {
-            mandatory: ["left_command"],
-          },
-        },
-        to: [
-          {
-            key_code: "tab",
-          },
-        ],
-      },
+      // {
+      //   type: "basic",
+      //   description: "Disable CMD + Tab to force Hyper Key usage",
+      //   from: {
+      //     key_code: "tab",
+      //     modifiers: {
+      //       mandatory: ["left_command"],
+      //     },
+      //   },
+      //   to: [
+      //     {
+      //       key_code: "tab",
+      //     },
+      //   ],
+      // },
     ],
   },
   ...createHyperSubLayers({
     // o = "Open" applications
     o: {
       g: app("Google Chrome"),
-      c: app("Cron"),
       v: app("Visual Studio Code"),
       d: app("Discord"),
       s: app("Slack"),
-      e: app("Superhuman"),
+      m: app("Mail"),
       n: app("Notion"),
-      t: app("Terminal"),
-      // Open todo list managed via *H*ypersonic
-      h: open(
-        "notion://www.notion.so/graphcdn/7b33b924746647499d906c55f89d5026?v=7f9a78e5477d40088f54bdbaf212f304"
-      ),
+      t: app("Warp"),
     },
 
     // w = "Window" via rectangle.app
-    w: {
-      h: {
-        description: "Window: First Third",
-        to: [
-          {
-            key_code: "left_arrow",
-            modifiers: ["right_option", "right_control"],
-          },
-        ],
-      },
-      l: {
-        description: "Window: Last Third",
-        to: [
-          {
-            key_code: "right_arrow",
-            modifiers: ["right_option", "right_control"],
-          },
-        ],
-      },
-      y: {
-        description: "Window: Left Half",
-        to: [
-          {
-            key_code: "left_arrow",
-            modifiers: ["right_option", "right_command"],
-          },
-        ],
-      },
-      o: {
-        description: "Window: Right Half",
-        to: [
-          {
-            key_code: "right_arrow",
-            modifiers: ["right_option", "right_command"],
-          },
-        ],
-      },
-      f: {
-        description: "Window: Full Screen",
-        to: [
-          {
-            key_code: "f",
-            modifiers: ["right_option", "right_command"],
-          },
-        ],
-      },
-      u: {
-        description: "Window: Previous Tab",
-        to: [
-          {
-            key_code: "tab",
-            modifiers: ["right_control", "right_shift"],
-          },
-        ],
-      },
-      i: {
-        description: "Window: Next Tab",
-        to: [
-          {
-            key_code: "tab",
-            modifiers: ["right_control"],
-          },
-        ],
-      },
-    },
+    // w: {
+    //   h: {
+    //     description: "Window: First Third",
+    //     to: [
+    //       {
+    //         key_code: "left_arrow",
+    //         modifiers: ["right_option", "right_control"],
+    //       },
+    //     ],
+    //   },
+    //   l: {
+    //     description: "Window: Last Third",
+    //     to: [
+    //       {
+    //         key_code: "right_arrow",
+    //         modifiers: ["right_option", "right_control"],
+    //       },
+    //     ],
+    //   },
+    //   y: {
+    //     description: "Window: Left Half",
+    //     to: [
+    //       {
+    //         key_code: "left_arrow",
+    //         modifiers: ["right_option", "right_command"],
+    //       },
+    //     ],
+    //   },
+    //   o: {
+    //     description: "Window: Right Half",
+    //     to: [
+    //       {
+    //         key_code: "right_arrow",
+    //         modifiers: ["right_option", "right_command"],
+    //       },
+    //     ],
+    //   },
+    //   f: {
+    //     description: "Window: Full Screen",
+    //     to: [
+    //       {
+    //         key_code: "f",
+    //         modifiers: ["right_option", "right_command"],
+    //       },
+    //     ],
+    //   },
+    //   u: {
+    //     description: "Window: Previous Tab",
+    //     to: [
+    //       {
+    //         key_code: "tab",
+    //         modifiers: ["right_control", "right_shift"],
+    //       },
+    //     ],
+    //   },
+    //   i: {
+    //     description: "Window: Next Tab",
+    //     to: [
+    //       {
+    //         key_code: "tab",
+    //         modifiers: ["right_control"],
+    //       },
+    //     ],
+    //   },
+    // },
 
     // s = "System"
     s: {
@@ -191,24 +186,20 @@ const rules: KarabinerRules[] = [
 
     // v = "moVe" which isn't "m" because we want it to be on the left hand
     // so that hjkl work like they do in vim
-    v: {
-      h: {
-        to: [{ key_code: "left_arrow" }],
-      },
-      j: {
-        to: [{ key_code: "down_arrow" }],
-      },
-      k: {
-        to: [{ key_code: "up_arrow" }],
-      },
-      l: {
-        to: [{ key_code: "right_arrow" }],
-      },
-      // Magicmove via homerow.app
-      m: {
-        to: [{ key_code: "f", modifiers: ["right_control"] }],
-      },
-    },
+    // v: {
+    //   h: {
+    //     to: [{ key_code: "left_arrow" }],
+    //   },
+    //   j: {
+    //     to: [{ key_code: "down_arrow" }],
+    //   },
+    //   k: {
+    //     to: [{ key_code: "up_arrow" }],
+    //   },
+    //   l: {
+    //     to: [{ key_code: "right_arrow" }],
+    //   },
+    // },
   }),
 ];
 
