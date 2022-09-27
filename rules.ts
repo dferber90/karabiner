@@ -2,7 +2,47 @@ import fs from "fs";
 import { KarabinerRules } from "./types";
 import { createHyperSubLayers, app, open } from "./utils";
 
+// rules not related to layers
+const otherRules: KarabinerRules[] = [
+  {
+    description: "command-f1 and f2 to adjust keyboard brightness",
+    manipulators: [
+      {
+        from: {
+          key_code: "f1",
+          modifiers: {
+            mandatory: ["left_command"],
+            optional: ["caps_lock"],
+          },
+        },
+        to: [
+          {
+            key_code: "illumination_decrement",
+          },
+        ],
+        type: "basic",
+      },
+      {
+        from: {
+          key_code: "f2",
+          modifiers: {
+            mandatory: ["left_command"],
+            optional: ["caps_lock"],
+          },
+        },
+        to: [
+          {
+            key_code: "illumination_increment",
+          },
+        ],
+        type: "basic",
+      },
+    ],
+  },
+];
+
 const rules: KarabinerRules[] = [
+  ...otherRules,
   // Define the Hyper key itself
   {
     description: "Hyper Key (⌃⌥⇧⌘)",
